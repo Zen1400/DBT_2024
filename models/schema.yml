@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw           # The name you want to give to the dataset
+    schema : gz_raw_data         # schema is the name of the dataset in BigQuery
+    tables:
+      - name: sales              # name you want to give the table
+        identifier: raw_gz_sales     # identifier is the name of the table in BigQuery
+
+      - name : product
+        identifier: raw_gz_product
+
+      - name : ship
+        identifier: raw_gz_ship
