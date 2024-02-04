@@ -3,12 +3,40 @@ version: 2
 sources:
   - name: raw           # The name you want to give to the dataset
     schema : gz_raw_data         # schema is the name of the dataset in BigQuery
+    description: The raw dataset
     tables:
       - name: sales              # name you want to give the table
         identifier: raw_gz_sales     # identifier is the name of the table in BigQuery
+        description: has quantity, revenue and date for each product. Multiple products by order_id
+        freshness: 
+          warn_after: {count : 90, period : day}
+        loaded_at_field: 'CAST(date_date AS TIMESTAMP)'
+        columns:
+          - name: pdt_id || '-' || orders_id
+            tests:
+              - unique
+              - not_null
+                  
 
       - name : product
         identifier: raw_gz_product
+        description: has only product_id and its price
+        columns:
+          - name: products_id
+            description: primary key
+            tests:
+              - unique
+              - not_null
+                  
+                  
 
       - name : ship
         identifier: raw_gz_ship
+        description: has orders_id and its log cost and ship cost
+        columns:
+          - name: orders_id
+            description: primary key
+            tests:
+              - unique
+              - not_null
+                  
