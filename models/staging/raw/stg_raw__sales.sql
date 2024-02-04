@@ -1,22 +1,20 @@
-with 
+with
 
-source as (
+    source as (select * from {{ source("raw", "sales") }}),
 
-    select * from {{ source('raw', 'sales') }}
+    renamed as (
 
-),
+        select
+            date_date,
+            orders_id,
+            pdt_id as products_id,
+            revenue,
+            quantity,
+            concat(pdt_id, '-', orders_id) as pk
 
-renamed as (
+        from source
 
-    select
-        date_date,
-        orders_id,
-        pdt_id AS products_id,
-        revenue,
-        quantity
+    )
 
-    from source
-
-)
-
-select * from renamed
+select *
+from renamed
