@@ -39,6 +39,6 @@ models:
   Analytics:
     # Applies to all files under models/example/
     mart:
-      +materialized: table
+      materialized: table
       finance :
         schema: finance
