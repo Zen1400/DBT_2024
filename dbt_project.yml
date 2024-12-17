@@ -39,4 +39,6 @@ models:
   'analytics':
     mart:
       materialized: table
+      finance:
+        schema: finance
     
