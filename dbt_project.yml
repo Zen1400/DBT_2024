@@ -36,9 +36,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  'analytics':               # Should match
-    # Applies to all files under models/example/
+  'analytics':
     mart:
       materialized: table
-      finance :
-        schema: finance             # Will create a dataset suffixed by finance in BQ
+      finance:
+        schema: finance
+    
