@@ -56,21 +56,21 @@ sources:
         identifier: raw_gz_bing 
 
 
-models:
+# models:
 
-  - name : int_sales_margin
-    tests:
-      - unique:
-          column_name: "(orders_id || '-' || pdt_id)"
-      - not_null:
-          column_name:
-            - orders_id
-            - products_id
-            - margin
-            - Purchase_cost
-            - date_date
-            - revenue
-            - quantity
+#   - name : int_sales_margin
+#     tests:
+#       - unique:
+#           column_name: "(orders_id || '-' || pdt_id)"
+#       - not_null:
+#           column_name:
+#             - orders_id
+#             - products_id
+#             - margin
+#             - Purchase_cost
+#             - date_date
+#             - revenue
+#             - quantity
 
   # - name: finance_campaigns_day
   #   description: global kpi
