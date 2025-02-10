@@ -1,11 +1,11 @@
 version: 2
 
 sources:
-  - name: raw           # The name you want to give to the dataset
+  - name: raw           # The alias you want to give to the dataset (used in DBT)
     schema : gz_raw_data         # schema is the name of the dataset in BigQuery
     description: The raw dataset
     tables:
-      - name: sales              # name you want to give the table
+      - name: sales              # alias you want to give the table (used in DBT)
         identifier: raw_gz_sales     # identifier is the name of the table in BigQuery
         description: has quantity, revenue and date for each product. Multiple products by order_id
         freshness: 
