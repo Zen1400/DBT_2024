@@ -39,7 +39,7 @@ sources:
             tests:
               - unique
               - not_null
-      
+
       
       - name: adwords
         identifier: raw_gz_adwords
@@ -55,6 +55,8 @@ sources:
       - name: bing
         identifier: raw_gz_bing 
 
+
+    
 
 # models:
 
