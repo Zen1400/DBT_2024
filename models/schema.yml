@@ -56,6 +56,39 @@ sources:
         identifier: raw_gz_bing 
 
 
+
+models:
+  - name: stg_raw__ship
+    columns:
+      - name: orders_id
+        description: primary key used to get costs for orders
+        tests:
+          - relationships:
+              to: ref('stg_raw__sales')
+              field: orders_id
+              config:
+                severity: warn
+      - name: ship_cos
+        description: a column to show expedition costs of an order
+
+      - name: shipping_fee
+        description: The amount of money paid by the customer to cover expedition fees
+        tests:
+          - not_null
+              
+
+
+
+              
+                
+        
+
+
+
+
+
+
+
     
 
 # models:
