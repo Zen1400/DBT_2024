@@ -43,3 +43,9 @@ models:
       finance:
         schema: 
           finance_models
+
+    staging:
+
+      particulier:
+        schema:
+          particulier

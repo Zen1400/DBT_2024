@@ -8,14 +8,11 @@ sources:
       - name: sales              # alias you want to give the table (used in DBT)
         identifier: raw_gz_sales     # identifier is the name of the table in BigQuery
         description: has quantity, revenue and date for each product. Multiple products by order_id
-        freshness: 
-          warn_after: {count : 90, period : day}
-        loaded_at_field: 'CAST(date_date AS TIMESTAMP)'
-        columns:
-          - name: pdt_id || '-' || orders_id   
-            tests:
-              - unique
-              - not_null
+        tests:
+          - dbt_utils.unique_combination_of_columns:
+              combination_of_columns:
+                - month
+                - product
               
                   
 
