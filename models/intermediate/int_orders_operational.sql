@@ -1,7 +1,7 @@
 SELECT
   o.orders_id
-  ,o.date_date
-  ,ROUND(o.margin + s.shipping_fee - (s.logcost + CAST(s.ship_cost AS FLOAT64)),2) AS operational_margin 
+  ,o.date_date 
+  ,{{ operational_margin('margin', 'shipping_fee', 'logcost', 'ship_cost') }} AS operational_margin 
   ,o.quantity
   ,o.revenue
   ,o.purchase_cost
